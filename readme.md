@@ -1,9 +1,14 @@
 # MSSQL Dateformat Fixer
 
-There is an international date format Y-m-d that is supposed to be universal, however the MSSQL implementation is flawed
-and is not universal and incorrect interprets it as Y-d-m which is beyond idiotic.
-Laravel uses Y-m-d as their international format, which can lead to errors depending on SQL SERVER Settings.
-This command checks the vendor directory for the file and updates it if required.
+There is an international date format `Y-m-d` that is supposed to be universal, however the MSSQL implementation is flawed
+and is NOT universal and incorrectly interprets `Y-m-d`  as `Y-d-m` which is beyond idiotic.
+Laravel uses `Y-m-d` as their international format, which can lead to errors depending on SQL SERVER Settings.
+
+There is one format `Ymd` which is absolutely gauranteed to always be interpreted by SQLServer as `Ymd`.  This command patches the file in 
+illuminate library to use `Ymd` instead of `Y-m-d`.  I [Requested]() that the change be made in the illuminate library but it was felt the change
+was too big to be made. 
+
+I hope this is helpful to those of you out there using MSSQL with PHP/Laravel.
 
 ## Installation
 
