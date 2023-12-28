@@ -1,10 +1,10 @@
 <?php
 
-  namespace Tobya\Fixsqldate\Providers;
+  namespace Tobya\MSSQLDateformat\Providers;
 
 
 
-  use Tobya\FixSQLDate\Console\CheckSQLGrammerDate;
+  use Tobya\MSSQLDateformat\Console\CheckSQLGrammerDate;
 
   class MSSQLUniversalDateProvider extends \Illuminate\Support\ServiceProvider
   {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tobya\FixSQLDate\Console;
+namespace Tobya\MSSQLDateformat\Console;
 
 
 use Illuminate\Console\Command;
