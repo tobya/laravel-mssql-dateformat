@@ -1,0 +1,28 @@
+{
+    "name": "tobya/fixsqldate",
+    "description": "Check and set MSSQL universal date format used by Laravel to 'Ymd' to ensure universal compatibility",
+    "type": "laravel-package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tobya\\Fixsqldate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Toby Allen",
+            "email": "toby@toflidium.com"
+        }
+    ],
+    "require": {
+        "laravel/laravel": "^8.0|^9.0|^10.0"
+    },
+"extra": {
+    "laravel": {
+        "providers": [
+            "Tobya\\Fixsqldate\\Providers\\MSSQLUniversalDateProvider"
+        ]
+
+    }
+}
+}
