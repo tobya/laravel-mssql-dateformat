@@ -4,7 +4,7 @@ namespace Tobya\MSSQLDateformat\Console;
 
 
 use Illuminate\Console\Command;
-
+use Illuminate\Support\Str;
 /**
  * There is an international date format Y-m-d that is supposed to be universal, however the MSSQL implementation is flawed
  * and is not universal and incorrect interprets it as Y-d-m which is beyond idiotic.
@@ -65,7 +65,7 @@ class CheckSQLGrammerDate extends Command
     {
         $filetocheck = base_path('vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\SqlServerGrammar.php');
         if (file_exists($filetocheck)){
-            $file_txt = Str(file_get_contents($filetocheck));
+            $file_txt = Str::of(file_get_contents($filetocheck));
             $datestr = 'return \'Y-m-d H:i:s.v\';';
             if ($file_txt->contains($datestr)){
                 if ($this->option('update')){
@@ -73,9 +73,9 @@ class CheckSQLGrammerDate extends Command
                     file_put_contents($filetocheck,$UpdatedFile_txt);
 
                     $this->comment("
-**********************************                    
+**********************************
 Incorrect Date Format value found
-********************************** 
+**********************************
 File on disk: $filetocheck");
                     $this->info('
 ------------------
