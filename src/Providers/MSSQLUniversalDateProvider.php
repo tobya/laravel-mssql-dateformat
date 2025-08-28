@@ -5,6 +5,7 @@
 
 
   use Tobya\MSSQLDateformat\Console\CheckSQLGrammerDate;
+  use Illuminate\Support\Facades\DB;
 
   class MSSQLUniversalDateProvider extends \Illuminate\Support\ServiceProvider
   {
@@ -28,5 +29,7 @@
         $this->commands([
           CheckSQLGrammerDate::class
         ]);
+
+        DB::connection()->setQueryGrammar(new \Tobya\MSSQLDateformat\Grammars\MSSQLGrammar(DB::connection()));
     }
   }

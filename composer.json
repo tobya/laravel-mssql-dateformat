@@ -1,6 +1,6 @@
 {
     "name": "tobya/laravel-mssql-dateformat",
-    "description": "Check and set MSSQL universal date format used by Laravel to 'Ymd' to ensure universal compatibility",
+    "description": "Utilise an alternative Inherited MSSQL Grammar that sets universal date format",
     "type": "laravel-package",
     "license": "MIT",
     "autoload": {

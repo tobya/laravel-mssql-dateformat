@@ -44,7 +44,7 @@ class CheckSQLGrammerDate extends Command
      *
      * @var string
      */
-    protected $description = 'Checks if the illuminate files in vendor directory are using incorrect date format. ';
+    protected $description = 'Deprecated: Date Format is now updated by use of inherited grammar.  This command is no longer required. ';
 
     /**
      * Create a new command instance.
@@ -63,40 +63,10 @@ class CheckSQLGrammerDate extends Command
      */
     public function handle()
     {
-        $filetocheck = base_path('vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\SqlServerGrammar.php');
-        if (file_exists($filetocheck)){
-            $file_txt = Str::of(file_get_contents($filetocheck));
-            $datestr = 'return \'Y-m-d H:i:s.v\';';
-            if ($file_txt->contains($datestr)){
-                if ($this->option('update')){
-                    $UpdatedFile_txt = $file_txt->replace($datestr, 'return \'Ymd H:i:s.v\';');
-                    file_put_contents($filetocheck,$UpdatedFile_txt);
 
-                    $this->comment("
-**********************************
-Incorrect Date Format value found
-**********************************
-File on disk: $filetocheck");
-                    $this->info('
-------------------
-Updated
-------------------');
-                    return 0;
-                } else {
-                    $this->warn( $this->NoUpdateMessage($filetocheck));
-                    $this->warn('Not Updated');
-                    return 0;
-                }
-
-            }
-        }
-        $this->info( "Date Format Appears to be ok.");
+        $this->warn( "Deprecated: Date Format is now updated by use of inherited grammar.  This command is no longer required. ");
         return 0;
     }
 
-    public function NoUpdateMessage($filetocheck){
-        return  "
-$filetocheck
-  has been overwritten with the wrong date format.  mssql:CheckSQLDate --update to update the file. ";
-    }
+
 }
