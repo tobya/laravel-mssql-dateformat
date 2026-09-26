@@ -22,7 +22,7 @@ composer require tobya/laravel-mssql-dateformat
 Run by calling the larvel command
 
 ````dotenv
-artisan mssql:check-universal-date --update
+php artisan mssql:check-universal-date --update
 ````
 You can run without `--update` to do the check without patching the file.
 
