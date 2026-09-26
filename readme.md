@@ -47,6 +47,16 @@ is updated it will overwrite the `SqlServerGrammar.php` with the origional versi
 the command whenever this has the potential of happening.  If no change has been made to the file it will
 not be modified.
 
+### What it does?
+
+The only way I have found to affect this change (I have tried updating the grammar with no luck) is to actually change 
+the file manually.  When the command is run the code replaces the format in the actual grammar file in your vendor
+directory with the new format.  This is why you need to make sure it is run any time the laravel framework library
+files may have been updated.
+
+I have been running it now for about 4 years on my own code and it works perfectly so far.  Hope it is of use to 
+someone.
+
 #### Further reading on why this is necessary
 
 This is discussed in several places online
